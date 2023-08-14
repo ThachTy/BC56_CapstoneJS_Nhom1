@@ -1,0 +1,14 @@
+/* Product */
+.product {
+    // background-color: $bg-primary;
+
+    .product__title {
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: 700;
+        text-shadow: 0 0 2px dimgray;
+        letter-spacing: 0.2rem;
+        line-height: 2rem;
+    }
+
+}

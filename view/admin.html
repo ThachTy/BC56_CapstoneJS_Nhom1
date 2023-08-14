@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shoe</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -v5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid px-0">
+                    <a class="navbar-brand" href="#">
+                        <h2 class="mb-0 ml-2 brand">Sneaker Store</h2>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../index.html"></i>Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"></i>Admin</a>
+                            </li>
+                            <!-- <li class="nav-item disabled">
+                                <a class="nav-link" href="#offcanvasScrolling" data-bs-toggle="offcanvas"
+                                    href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </li> -->
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Admin -->
+    <section class="admin">
+        <div class="form_cart container">
+            <div class="card-header myCardHeader mt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="text-left text-primary font-weight-bold">
+                            Shoe Management
+                        </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-primary" id="btnThem" data-toggle="modal" data-target="#myModal">
+                            <i class="fa-solid fa-circle-plus"></i> Add items
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover myTable mb-5">
+                <thead class="text-primary">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Photo</th>
+                        <th>Discription</th>
+                        <th><em class="fa fa-cog"></em> Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableDanhSach"></tbody>
+            </table>
+        </div>
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <header class="head-form mb-0 text-center p-3">
+                        <h2 id="header-title">Information</h2>
+                    </header>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i
+                                                class="fa-solid fa-mobile-screen-button"></i></span>
+                                    </div>
+                                    <input type="text" name="name" id="shoeName" class="form-control input-sm"
+                                        placeholder="Name" />
+                                </div>
+                                <span class="sp-thongbao" id="tbShoeName"></span>
+                            </div>
+
+                            <div class="form-group w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa-solid fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="number" name="price" id="price" class="form-control input-sm"
+                                        placeholder="price" />
+                                </div>
+                                <span class="sp-thongbao" id="tbPrice"></span>
+                            </div>
+
+                            <div class="form-group w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i
+                                                class="fa-solid fa-mobile-screen-button"></i></span>
+                                    </div>
+                                    <input type="number" name="screen" id="screen" class="form-control input-sm"
+                                        placeholder="screen" />
+                                </div>
+                                <span class="sp-thongbao" id="tbScreen"></span>
+                            </div>
+
+                            <div class="form-group w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa-solid fa-camera"></i></span>
+                                    </div>
+                                    <input type="text" name="backCamera" id="backCamera" class="form-control input-sm"
+                                        placeholder="Back Camera" />
+                                </div>
+                                <span class="sp-thongbao" id="tbBackCamera"></span>
+                            </div>
+
+                            <div class="form-group w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa-solid fa-camera"></i></span>
+                                    </div>
+                                    <input type="text" name="frontCamera" id="frontCamera" class="form-control input-sm"
+                                        placeholder="Front Camera" />
+                                </div>
+                                <span class="sp-thongbao" id="tbFrontCamera"></span>
+                            </div>
+
+                            <div class="form-group w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa-regular fa-image"></i></span>
+                                    </div>
+                                    <input type="text" name="img" id="imgLink" class="form-control input-sm"
+                                        placeholder="img Link" />
+                                </div>
+                                <span class="sp-thongbao" id="tbImgLink"></span>
+                            </div>
+                            <div class="form-group w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa-solid fa-message"></i></span>
+                                    </div>
+                                    <input type="text" name="description" id="description" class="form-control input-sm"
+                                        placeholder="Description" />
+                                </div>
+                                <span class="sp-thongbao" id="tbDescription"></span>
+                            </div>
+                            <div class="form-group w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa-solid fa-layer-group"></i></span>
+                                    </div>
+                                    <select class="form-control" id="brand">
+                                        <option>Select brand</option>
+                                        <option>Nike</option>
+                                        <option>Adidas</option>
+                                    </select>
+                                </div>
+                                <span class="sp-thongbao" id="tbBrand"></span>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer" id="modal-footer">
+                        <button id="btnThemNV" type="button" class="btn btn-success">
+                            Add Phone
+                        </button>
+                        <button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-sub">
+                <div class="container">
+                    <div class="text-txt">
+                        <div class="row pt-4">
+                            <div class="col-6 col-sm-3 px-0 footer_brands">
+                                <h6>BRANDS</h6>
+                                <ul>
+                                    <li class="cat-item cat-item-2">
+                                        <a href="#">Nike</a>
+                                    </li>
+                                    <li class="cat-item cat-item-4">
+                                        <a href="#">Adidas</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-6 col-sm-3 px-0 footer_useful">
+                                <h6>USEFUL</h6>
+                                <ul>
+                                    <li class="cat-item cat-item-2">
+                                        <a href="#">Pricing</a>
+                                    </li>
+                                    <li class="cat-item cat-item-3">
+                                        <a href="#">Settings</a>
+                                    </li>
+                                    <li class="cat-item cat-item-4">
+                                        <a href="#">Orders</a>
+                                    </li>
+                                    <li class="cat-item cat-item-5">
+                                        <a href="#">Help</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-6 col-sm-3 px-0 footer_contact">
+                                <h6>CONTACT</h6>
+                                <div class="contact_content">
+                                    <div class="href1">
+                                        <span class="fa fa-envelope-open"></span>
+                                        <a href="mailto:info@example.com">info@example.com</a>
+                                    </div>
+
+                                    <div class="href2">
+                                        <span class="fa fa-phone"></span>
+                                        <a href="tel:+44-000-888-999">+44-000-888-999</a>
+                                    </div>
+
+                                    <div>
+                                        <p class="contact-para">
+                                            <span class="fa fa-map-marker"></span>
+                                            <a href="Da Nang, Thanh Khe, VN">Tan Lap, Di An, Binh Duong</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-3 px-0 sub-one-left ab-right-cont footer_about">
+                                <h6>Shose</h6>
+                                <p class="text-capitalize">
+                                    We pride ourselves on our efficiency and hard work, but most
+                                    of all our ability to source you the best quality and best
+                                    value products and devices in the market.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- copyright -->
+            <div class="copyright-footer">
+                <div class="container">
+                    <div class="columns">
+                        <p class="CopyRights">
+                            © 2023 Studious. All Rights Reserved | WordPress Theme by
+                            <a href="">Shoe. </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- boostrap bundle  -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+
+    <!-- admin.js -->
+    <script src="../Controllers/admin.js"></script>
+</body>
+
+</html>

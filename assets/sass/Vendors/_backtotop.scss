@@ -1,0 +1,24 @@
+/* Back To Top */ 
+.back-to-top {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    background-color: $c-primary;
+    border-radius: 50%;
+    position: fixed;
+    // opacity: 0;
+    // visibility: hidden;
+}
+
+.cd-top--is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.cd-top--fade-out {
+    opacity: 1;
+}

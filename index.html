@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -v5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/index.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid px-0">
+                    <a class="navbar-brand" href="#">
+                        <h2 class="mb-0 ml-2 brand">Sneaker Store</h2>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="./index.html"></i>Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./view/admin.html"></i>Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#offcanvasScrolling" data-bs-toggle="offcanvas"
+                                    href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </li>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart -->
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Try scrolling the rest of the page to see this option in action.</p>
+        </div>
+    </div>
+
+
+    <!-- Carousel -->
+    <!-- <section class="carousel">
+        <div class="container">
+            <div class="carousel__list">
+                <div class="carousel__content">
+                    <div class="carousel__item ">
+                        <div class="content-left">
+                            <h1 class="carousel__slogan">
+                                EPIC ENERGY. <br />
+                                LIGHTEST EVER.
+                            </h1>
+                            <p class="carousel__description">
+                                Experience epic energy in every stride with the Ultraboost
+                                Light. Our lightest Ultraboost ever, made with 30% lighter
+                                BOOST material. 'Cause heavy legs suck.
+                            </p>
+                            <button class="btn-primary">Buy Now</button>
+                        </div>
+                        <div class="content-right">
+                            <img src="../assets/img/jordan02.png" alt="" />
+                            <p id="p">JORDAN 1</p>
+                        </div>
+                    </div>
+                    <div class="carousel__item">
+                        <div class="content-left">
+                            <h1 class="carousel__slogan">
+                                STEP INTO. <br />
+                                WHAT FEELS GOOD.
+                            </h1>
+                            <p class="carousel__description">
+                                Experience epic energy in every stride with the Ultraboost
+                                Light. Our lightest Ultraboost ever, made with 30% lighter
+                                BOOST material. 'Cause heavy legs suck.
+                            </p>
+                            <button class="btn-primary">Buy Now</button>
+                        </div>
+                        <div class="content-right">
+                            <img src="../assets/img/SUPERSTAR_Light.png" alt="" />
+                            <p id="p">SUPPER STAR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel__nav">
+                    <button class="btn-prev">
+                        <i class="fa fa-arrow-left"></i>
+                    </button>
+                    <button class="btn-next">
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Products  -->
+    <section class="product">
+        <div class="container py-4">
+            <h5 class="product__title mb-4">NEW PRODUCTS</h5>
+            <div class="row row-cols-lg-4 mb-4">
+                <div class="col">
+                    <select class="form-control" name="" id="categories">
+                        <option selected>All Brands</option>
+                        <option>Nike</option>
+                        <option>Adidas</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input class="form-control" type="search" placeholder="Search..." />
+                    <!-- <button class="btn btn-dark my-2 my-sm-0" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button> -->
+                </div>
+            </div>
+
+            <div class="product__items py-3">
+                <div class="row row-gap-3 row-gap-lg-4 row-cols-1  row-cols-md-2 row-cols-lg-3">
+                    <div class="col">
+                        <div class="card w-100">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's
+                                    content.</p>
+                                <a href="#" class="btn btn-primary">Add</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card w-100">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's
+                                    content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card w-100">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's
+                                    content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card w-100">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's
+                                    content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card w-100">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's
+                                    content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-sub">
+                <div class="container">
+                    <div class="text-txt">
+                        <div class="row pt-4">
+                            <div class="col-6 col-sm-3 px-0 footer_brands">
+                                <h6>BRANDS</h6>
+                                <ul>
+                                    <li class="cat-item cat-item-2">
+                                        <a href="#">Nike</a>
+                                    </li>
+                                    <li class="cat-item cat-item-4">
+                                        <a href="#">Adidas</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-6 col-sm-3 px-0 footer_useful">
+                                <h6>USEFUL</h6>
+                                <ul>
+                                    <li class="cat-item cat-item-2">
+                                        <a href="#">Pricing</a>
+                                    </li>
+                                    <li class="cat-item cat-item-3">
+                                        <a href="#">Settings</a>
+                                    </li>
+                                    <li class="cat-item cat-item-4">
+                                        <a href="#">Orders</a>
+                                    </li>
+                                    <li class="cat-item cat-item-5">
+                                        <a href="#">Help</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-6 col-sm-3 px-0 footer_contact">
+                                <h6>CONTACT</h6>
+                                <div class="contact_content">
+                                    <div class="href1">
+                                        <span class="fa fa-envelope-open"></span>
+                                        <a href="mailto:info@example.com">info@example.com</a>
+                                    </div>
+
+                                    <div class="href2">
+                                        <span class="fa fa-phone"></span>
+                                        <a href="tel:+44-000-888-999">+44-000-888-999</a>
+                                    </div>
+
+                                    <div>
+                                        <p class="contact-para">
+                                            <span class="fa fa-map-marker"></span>
+                                            <a href="Da Nang, Thanh Khe, VN">Tan Lap, Di An, Binh Duong</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-3 px-0 sub-one-left ab-right-cont footer_about">
+                                <h6>Shose</h6>
+                                <p class="text-capitalize">
+                                    We pride ourselves on our efficiency and hard work, but most
+                                    of all our ability to source you the best quality and best
+                                    value products and devices in the market.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- copyright -->
+            <div class="copyright-footer">
+                <div class="container">
+                    <div class="columns">
+                        <p class="CopyRights">
+                            © 2023 Studious. All Rights Reserved | WordPress Theme by
+                            <a href="">Shoe. </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top  -->
+    <div class="backToTop">
+        <a href="" class="back-to-top cd-top text-replace js-cd-top">
+            <i class="fa-solid fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- boostrap-V5.3  -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+
+    <!-- index.js-->
+    <script src="./Controllers/index.js"></script>
+</body>
+
+</html>

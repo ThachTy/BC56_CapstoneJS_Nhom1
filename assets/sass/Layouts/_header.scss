@@ -1,0 +1,66 @@
+// @import"../Helpers/vairiables";
+
+/* Header */
+header {
+    background-color: $bg-primary;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 99;
+
+    .navbar {
+        background-color: transparent;
+
+        .navbar-brand {
+            .brand {
+                // font-size: $fs-2;
+                font-weight: $fw-semibold;
+                color: $c-primary;
+            }
+        }
+
+        .navbar-nav {
+            .nav-item {
+                &:hover .nav-link {
+                    transition: all 0.7s;
+                    color: $c-secondary;
+
+                }
+
+
+                .nav-link {
+                    padding: 10px;
+                    color: $c-primary;
+                    font-size: $fs-5;
+                    font-weight: $fs-5;
+
+                    i {
+                        margin-right: 4px;
+                    }
+                }
+
+            }
+
+            button {
+                font-size: 16px;
+                color: #000;
+                font-weight: 500;
+
+                &:hover {
+                    transition: all 0.7s;
+                    color: #e3ee6b;
+                }
+            }
+        }
+    }
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: $c-primary;
+    font-size: $fs-5;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: $c-secondary;
+}

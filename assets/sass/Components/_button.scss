@@ -1,0 +1,14 @@
+/* Button */
+.navbar-toggler {
+    &:focus {
+        box-shadow: none;
+    }
+
+    &:hover .fa-solid.fa-bars {
+        color: $c-primary-light;
+    }
+
+    .fa-solid.fa-bars {
+        color: $c-primary;
+    }
+}
