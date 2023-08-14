@@ -1,9 +1,8 @@
-// @import"../Helpers/vairiables";
-
 /* Header */
 header {
     background-color: $bg-primary;
     width: 100%;
+    height: $h-header;
     position: sticky;
     top: 0;
     left: 0;
@@ -11,6 +10,10 @@ header {
 
     .navbar {
         background-color: transparent;
+
+        .container-fluid {
+            background-color: $bg-primary;
+        }
 
         .navbar-brand {
             .brand {
@@ -27,7 +30,6 @@ header {
                     color: $c-secondary;
 
                 }
-
 
                 .nav-link {
                     padding: 10px;
@@ -53,6 +55,7 @@ header {
                 }
             }
         }
+
     }
 }
 
