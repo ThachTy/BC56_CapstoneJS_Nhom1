@@ -59,19 +59,32 @@
         <div class="form_cart container">
             <div class="card-header myCardHeader mt-4">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <h3 class="text-left text-primary font-weight-bold">
                             Shoe Management
                         </h3>
                     </div>
-                    <div class="col-md-6 text-right">
+                    <div class="col-md-8 text-right">
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                             <i class="fa-solid fa-circle-plus"></i> Add items
                         </button>
                     </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="selLoai" class="col-sm-2 col-form-label">Show</label>
+                            <div class="col-sm-10">
+                                <select class="custom-select" id="selLoai">
+                                    <option selected>Select</option>
+                                    <option value="all">All</option>
+                                    <option value="loai1">Nike</option>
+                                    <option value="loai2">Adidas</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <table class="table table-bordered table-hover myTable mb-5">
+            <table class="table table-bordered table-hover myTable mb-5 mt-3">
                 <thead class="text-primary">
                     <tr>
                         <th>#</th>
@@ -98,6 +111,15 @@
                             <div class="form-group w-100">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa-solid fa-id-badge"></i></span>
+                                    </div>
+                                    <input type="text" name="id" id="idName" class="form-control input-sm" placeholder="ID" />
+                                </div>
+                                <span class="sp-thongbao" id="tbID"></span>
+                            </div>
+                            <div class="form-group w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
                                         <span class="input-group-text"><i
                                                 class="fa-solid fa-mobile-screen-button"></i></span>
                                     </div>
@@ -113,29 +135,17 @@
                                         <span class="input-group-text"><i class="fa-solid fa-dollar-sign"></i></span>
                                     </div>
                                     <input type="number" name="price" id="price" class="form-control input-sm"
-                                        placeholder="price" />
+                                        placeholder="Price" />
                                 </div>
                                 <span class="sp-thongbao" id="tbPrice"></span>
                             </div>
-
-                            <div class="form-group w-100">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa-solid fa-shoe-prints"></i></span>
-                                    </div>
-                                    <input type="number" name="type" id="type" class="form-control input-sm"
-                                        placeholder="type" />
-                                </div>
-                                <span class="sp-thongbao" id="tbType"></span>
-                            </div>
-
                             <div class="form-group w-100">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa-solid fa-percent"></i></span>
                                     </div>
                                     <input type="text" name="discount" id="discount" class="form-control input-sm"
-                                        placeholder="discount" />
+                                        placeholder="Discount" />
                                 </div>
                                 <span class="sp-thongbao" id="tbDiscount"></span>
                             </div>
@@ -146,7 +156,7 @@
                                         <span class="input-group-text"><i class="fa-solid fa-signal"></i></span>
                                     </div>
                                     <input type="text" name="status" id="status" class="form-control input-sm"
-                                        placeholder="Front Camera" />
+                                        placeholder="Status" />
                                 </div>
                                 <span class="sp-thongbao" id="tbStatus"></span>
                             </div>
@@ -157,7 +167,7 @@
                                         <span class="input-group-text"><i class="fa-regular fa-image"></i></span>
                                     </div>
                                     <input type="text" name="img" id="imgLink" class="form-control input-sm"
-                                        placeholder="img Link" />
+                                        placeholder="Img Link" />
                                 </div>
                                 <span class="sp-thongbao" id="tbImgLink"></span>
                             </div>
