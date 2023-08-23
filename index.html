@@ -131,12 +131,12 @@
                 <div class="col">
                     <select class="form-control" name="" id="categories">
                         <option selected>All Brands</option>
-                        <option>Nike</option>
-                        <option>Adidas</option>
+                        <option value="Plastic">Nike</option>
+                        <option value="Wooden">Adidas</option>
                     </select>
                 </div>
                 <div class="col">
-                    <input class="form-control" type="search" placeholder="Search..." />
+                    <input id="typeSearch" class="form-control" type="search" placeholder="Search..." />
                     <!-- <button class="btn btn-dark my-2 my-sm-0" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button> -->
@@ -144,8 +144,8 @@
             </div>
 
             <div class="product__items py-3">
-                <div class="row row-gap-3 row-gap-lg-4 row-cols-1  row-cols-md-2 row-cols-lg-3">
-                    <div class="col">
+                <div id="listProduct" class="row row-gap-3 row-gap-lg-4 row-cols-1  row-cols-md-2 row-cols-lg-3">
+                    <!-- <div class="col">
                         <div class="card w-100 p-4">
                             <div class="card-top">
                                 <img src="./assets/img/jordan02.png" class="card-img-top d-block w-100" alt="...">
@@ -171,7 +171,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
                 </div>
@@ -266,7 +266,7 @@
 
     <!-- Back to top  -->
     <div class="backToTop">
-        <a href="" class="back-to-top cd-top text-replace js-cd-top">
+        <a href="#header" class="back-to-top cd-top text-replace js-cd-top">
             <i class="fa-solid fa-chevron-up"></i>
         </a>
     </div>
@@ -278,7 +278,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
         crossorigin="anonymous"></script>
-
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Ulti -->
+    <script src="./util/method.js"></script>
     <!-- index.js-->
     <script src="./Controllers/index.js"></script>
 </body>
