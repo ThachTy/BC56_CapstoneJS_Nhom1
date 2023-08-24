@@ -33,7 +33,7 @@ window.addProduct = () => {
     productServ
     .addProduct(data)
     .then((res) => {
-         $('#myModal').modal('hide'); 
+         new bootstrap.Modal(document.querySelector('#myModal')).show(); 
         // onSuccess("Thêm thành công");
         fetchProductList();
     })
@@ -43,7 +43,7 @@ window.addProduct = () => {
 };
 
 window.editProduct = (id) => {
-    $('#myModal').modal('show');
+    new bootstrap.Modal(document.querySelector('#myModal')).show();
     productServ
         .getDetail(id)
         .then((res) => {
