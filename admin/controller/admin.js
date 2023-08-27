@@ -1,5 +1,6 @@
+
 import productServ from "../util/service.js";
-import {renderProductList,layThongTin,showDataForm, } from "./controller-admin.js";
+import {layThongTin,renderProductList,showDataForm,onSuccess, valid_data, onFail,new_data } from "./controller-admin.js";
 
 //render 
 let fetchProductList = () => {
@@ -14,11 +15,15 @@ let fetchProductList = () => {
          });
 }
 fetchProductList();
-
+window.addSh = ()=>{
+    new_data()
+    valid_data(data)
+}
 let deleteProduct = (id) => {
    productServ.deleteProduct(id)
     .then((res) => {
         console.log(res);
+        onSuccess("xoa thanh cong")
         fetchProductList();
     })
     .catch((err) => {
@@ -28,18 +33,20 @@ let deleteProduct = (id) => {
 window.deleteProduct = deleteProduct;
 
 window.addProduct = () => {
-    console.log("yes");
     let data = layThongTin();
-    productServ
+    if (!valid_data(data)) {
+        productServ
     .addProduct(data)
     .then((res) => {
-         new bootstrap.Modal(document.querySelector('#myModal')).show(); 
-        // onSuccess("Thêm thành công");
+         new bootstrap.Modal(document.querySelector('#myModal')).hide(); 
+        onSuccess("Thêm thành công");
         fetchProductList();
     })
     .catch((err) => {
         console.log(err);
     });
+    }else onFail("Add Fail!")
+    
 };
 
 window.editProduct = (id) => {
@@ -56,7 +63,8 @@ window.editProduct = (id) => {
                         console.table(data);
                         fetchProductList();
                         console.log(data)
-                        // onSuccess("cập nhật thành công")
+                        new bootstrap.Modal(document.querySelector('#myModal')).hide();
+                        onSuccess("cập nhật thành công")
                      })
                      .catch((err) => {
                           console.log(err);
@@ -68,4 +76,3 @@ window.editProduct = (id) => {
             console.log(err);
         });
 };
-

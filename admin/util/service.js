@@ -35,7 +35,6 @@ function updateProduct(id, product) {
         data: product,
     });
 };
-
 let productServ = {
     getList,
     deleteProduct,
