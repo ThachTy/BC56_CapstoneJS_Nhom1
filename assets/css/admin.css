@@ -6,6 +6,7 @@
 /* Background Color */
 /* Text */
 /* Margin */
+/* Border-radius */
 /* -------------------------------- 
 
 Icons 
@@ -83,15 +84,43 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Button */
-.navbar-toggler:focus {
-  box-shadow: none;
+p {
+  margin-bottom: 0;
 }
+
+/* Button */
 .navbar-toggler:hover .fa-solid.fa-bars {
   color: #fee715;
 }
 .navbar-toggler .fa-solid.fa-bars {
   color: #ffc014;
+}
+
+.btn-close:focus,
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.btn-checkout {
+  width: 100%;
+  background-image: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);
+  padding: 15px 0;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  letter-spacing: 0.2rem;
+  border: none;
+}
+
+.btn-checkout:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 /* Header */
