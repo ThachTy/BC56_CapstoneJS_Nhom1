@@ -329,3 +329,22 @@ footer .copyright-footer a:hover, footer .copyright-footer afocus {
   -moz-appearance: none;
   appearance: none;
 }
+
+td img {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+
+}
+.input-group-text{
+  justify-content: center;
+  width: 50px;
+  height: 40px;
+ 
+}
+.form-group .noti{
+ display: none;
+ margin-left: 50px;
+ color: red
+
+}
