@@ -65,14 +65,14 @@
             <p class="offcanvas-title cart-title" id="offcanvasScrollingLabel">
                 <i class="bi bi-bag-check"></i>
                 <span>Shopping Cart</span>
-                <span id="numberItems">(4 items)</span>
+                <span id="numberItems"></span>
             </p>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <div class="container">
+            <div id="cartBody" class="container">
                 <!-- Cart Item -->
-                <div class="cart-items ">
+                <!-- <div class="cart-items ">
                     <div class="cart-img"><img src="https://loremflickr.com/640/480/sports" alt=""></div>
                     <div class="cart-detail">
                         <div class="details">
@@ -96,8 +96,7 @@
                             <button class="btn-dash" type="button"><i class="bi bi-dash-circle"></i></button>
                         </div>
                     </div>
-                </div>
-
+                </div> -->
 
             </div>
         </div>
@@ -106,7 +105,7 @@
                 <!-- Cart Total -->
                 <div class="row">
                     <span class="col">TOTAL: </span>
-                    <p id="total" class="col total">$462.98</p>
+                    <p id="total" class="col tottalAll"></p>
                 </div>
 
                 <button class="btn-checkout">CHECKOUT</button>
