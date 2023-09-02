@@ -1,5 +1,14 @@
 /* Button */
 .navbar-toggler {
+    font-size: $fs-4;
+    font-weight: 500;
+    border: none;
+    background-color: transparent;
+
+    .fa-solid.fa-bars {
+        transition: all 0.35s;
+    }
+
     &:hover .fa-solid.fa-bars {
         color: $c-primary-light;
     }
@@ -16,15 +25,6 @@
         box-shadow: none;
     }
 }
-
-//     {
-//     width: 100%;
-//     padding: 5px 0;
-//     color: #fff;
-//     background: #ed3a48;
-//     border: none;
-
-// }
 
 .btn-checkout {
     width: 100%;
@@ -43,7 +43,6 @@
 
 .btn-checkout:hover {
     background-position: right center;
-    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 }

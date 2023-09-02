@@ -1,65 +1,165 @@
-/* Carousel */
-// function carouselNext() {
-//   const carouselItem = document.querySelectorAll('.carousel__item')
-//   const carousel = document.querySelector('.carousel__content')
-//   carousel.appendChild(carouselItem[0])
-// }
-// function carouselPrev() {
-//   const carouselItem = document.querySelectorAll('.carousel__item')
-//   const carousel = document.querySelector('.carousel__content')
-//   carousel.prepend(carouselItem[carouselItem.length - 1])
-// }
-// document.querySelector('.btn-next').onclick = carouselNext
-// document.querySelector('.btn-prev').onclick = carouselPrev
-
-/*
- Object Product
-        "Name": "Oriental Wooden Chicken",
-        "Price": "521.00",
-        "Image": "https://loremflickr.com/640/480/sports",
-        "Desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "Type": "Plastic",
-        "Id": "39"
-*/
+import productServ from "../admin/util/service.js";
+import sweetAlert from "../util/sweetAlert.js";
+import Product from "../Models/Product.js";
 
 
-
-/*===========================GLOBAL===========================*/
+/*=========================== GLOBAL ================================*/
 var arraySearch = [];
 var listProducts = [];
-/*===========================DOM==============================*/
+
+/*============================ DOM ====================================*/
 const TABLE_PRODUCT = document.querySelector('#listProduct');
 const BODY_CART = document.querySelector('#cartBody');
-
-
-
-
-
 const URL_CART = "https://64c62b5ec853c26efadb28e8.mockapi.io/Cart/";
-const URL_PRODUCTS = "https://64c62b5ec853c26efadb28e8.mockapi.io/Product/";
-/*============================================================*/
+
+
+/*============================ EVENT ==================================*/
+document.body.onload = async function () {
+  // Product
+  await productServ.getList().then((res) => {
+    RenderProduct(res.data);
+  });
+
+  // Cart
+  const productFromCart = GetLocalStorage("cart");
+  ChangeToProduct(productFromCart);
+  RenderCart(listProducts);
+}
+
+document.querySelector('#categories').onchange = async function (event) {
+  var slect = event.target;
+
+  await productServ.getList().then((res) => {
+    if (slect.options.selectedIndex == 0) {
+      RenderProduct(res.data);
+    }
+    else {
+      var listSearch = SearchProducts(res.data, slect.value, "brand");
+      RenderProduct(listSearch);
+    }
+  });
+}
+
+document.querySelector('#typeSearch').onkeyup = async function (event) {
+  var type = event.target;
+
+  await productServ.getList().then(function (res) {
+    if (type.value == "") {
+      RenderProduct(res.data);
+    }
+    else {
+      var listSearch = SearchProducts(res.data, type.value, "name")
+      RenderProduct(listSearch);
+    }
+  });
+}
+
+// Remove Product from Cart
+window.RemoveProduct = async function (id) {
+  for (let index = 0; index < listProducts.length; index++) {
+    if (id == listProducts[index].id) {
+      listProducts.splice(index, 1);
+    }
+  }
+  PostLocalStorage(listProducts);
+  RenderCart(listProducts);
+  await PutAPI(URL_CART, "1", listProducts);
+}
+
+window.AddCart = function (id) {
+  // Lấy Object Product theo Id => res.data
+  productServ.getDetail(id).then(async function (res) {
+    // Kiểm tra resquest thành công mới add vào danh sách
+    if (true && CheckIntoListProduct(res.data)) {
+
+      ChangeToProduct([res.data]);
+
+      PostLocalStorage(listProducts);
+
+      RenderCart(listProducts);
+      // Kiểm tra put thành công mới render danh sách cart
+      await PutAPI(URL_CART, "1", listProducts);
+    }
+  });
+}
+
+
+
+window.DownNumber = function (id) {
+  var number = document.querySelector(`input[data-id="${id}"]`);
+  const QUANTITY = document.querySelector(`#quantityProduct[data-id="${id}"]`);
+
+  if (number.value * 1 > 0) {
+    number.value = number.value * 1 - 1;
+    QUANTITY.innerText = number.value;
+    for (const iterator of listProducts) {
+      if (iterator.id == id) {
+        iterator.quantity = number.value * 1;
+      }
+    }
+    TotalProduct(id);
+    PostLocalStorage(listProducts);
+  }
+}
+
+window.UpNumber = function (id) {
+  var number = document.querySelector(`input[data-id="${id}"]`);
+  const QUANTITY = document.querySelector(`#quantityProduct[data-id="${id}"]`);
+
+  number.value = number.value * 1 + 1;
+  QUANTITY.innerText = number.value;
+  for (const iterator of listProducts) {
+    if (iterator.id == id) {
+      iterator.quantity = number.value * 1;
+    }
+  }
+  TotalProduct(id);
+  PostLocalStorage(listProducts);
+}
+
+window.ChangeNumber = function (target, id) {
+  const inputNumber = target.value;
+
+  for (const iterator of listProducts) {
+    if (iterator.id == id) {
+      iterator.quantity = inputNumber;
+    }
+  }
+  TotalProduct(id);
+  PostLocalStorage(listProducts);
+}
+
+document.getElementById('btnCheckOut').onclick = function () {
+  listProducts = [];
+  RenderCart(listProducts);
+  document.querySelectorAll('.total').innerText = "0.00$";
+  PostLocalStorage(listProducts);
+  sweetAlert.success("You've successfully paid !");
+  const bsOffcanvas = new bootstrap.Offcanvas('#offcanvasScrolling');
+  bsOffcanvas.hide = true;
+}
+
+/*============================ PRODUCT ================================*/
 function RenderProduct(list) {
   TABLE_PRODUCT.innerHTML = "";
   var text = "";
 
   for (const product of list) {
-    text += `<div class="col">
+    text += `<div class="col mb-2 mb-sm-3  mb-md-3 p-lg-1">
                 <div class="card">
-                    <img src=${product.Image} alt="">
+                    <img src=${product.image} alt="">
                     <div class="card-content">
                       <div class="card-title">
                         <h5>
-                          ${product.Name}
+                          ${product.name}
                         </h5>
-                        <span>$${product.Price}</span>
-                      
+                        <span>$${(product.price * 1).toLocaleString()}</span>
                       </div>
-                        
                       <p>
-                        ${product.Desc}
+                        ${product.description}
                       </p>
                     </div>
-                    <a onclick="AddCart(${product.Id})" class="btn-Add" role="button">
+                    <a onclick="AddCart(${product.id})" class="btn-Add" role="button">
                         <i class="bi bi-bag-plus-fill"></i>
                     </a>
                 </div>
@@ -68,28 +168,10 @@ function RenderProduct(list) {
   TABLE_PRODUCT.innerHTML = text;
 }
 
-async function GetAPI(URL, id = "") {
-  URL += id;
-  var respon = await axios.get(URL, {}).then()
-  return respon.data;
-}
-
 async function PutAPI(URL, id, data = []) {
   URL += id;
   var respon = await axios.put(URL, { Products: data }).then()
   return respon.request;
-}
-
-document.body.onload = async function () {
-  // Product
-  var products = await GetAPI(URL_PRODUCTS);
-  RenderProduct(products);
-
-  // Cart
-  var prodctFromCart = await GetProductsFromCart("1");
-  listProducts = await GetProductsFromCart();
-  RenderCart(prodctFromCart.reverse());
-
 }
 
 function SearchProducts(list = [], valueSearch = "", key) {
@@ -104,70 +186,41 @@ function SearchProducts(list = [], valueSearch = "", key) {
   return listSearch;
 }
 
-
-document.querySelector('#categories').onchange = async function (event) {
-  var slect = event.target;
-  var products = await GetAPI(URL_PRODUCTS);
-  if (slect.options.selectedIndex == 0) {
-    RenderProduct(products);
-  }
-  else {
-    var listSearch = SearchProducts(products, slect.value, "Type");
-    RenderProduct(listSearch);
-  }
-}
-
-document.querySelector('#typeSearch').onkeyup = async function (event) {
-  var type = event.target;
-  var products = await GetAPI(URL_PRODUCTS);
-  if (type.value == "") {
-    RenderProduct(products);
-  }
-  else {
-    var listSearch = SearchProducts(products, type.value, "Name")
-    RenderProduct(listSearch);
-  }
-}
-
-
-/*==========================CART================================*/
+/*========================== CART ======================================*/
 function RenderCart(list) {
   document.getElementById('numberItems').innerText = `(${list.length} items)`;
 
   BODY_CART.innerHTML = "";
   var text = "";
 
-
   for (let index = list.length - 1; 0 <= index; index--) {
     const products = list[index];
-    // const total = products.Price * quantity.value;
-
     text += `<!-- Cart Item -->
                 <div class="cart-items ">
-                    <div class="cart-img"><img src=${products.Image} alt=""></div>
+                    <div class="cart-img"><img src=${products.image} alt=""></div>
                     <div class="cart-detail">
                         <div class="details">
-                            <p id="nameProduct">${products.Name}</p>
-                            <a class="btn-remove" onclick=RemoveProduct(${products.Id}) role="button">
+                            <p id="nameProduct">${products.name}</p>
+                            <a class="btn-remove" onclick=RemoveProduct(${products.id}) role="button">
                               <i class="bi bi-x"></i>
                             </a>
                             <div class="row">
                                 <span class="col">Quantity:</span>
-                                <p id="quantityProduct" data-id=${products.Id} class="col quantity">1</p>
+                                <p id="quantityProduct" data-id=${products.id} class="col quantity">${products.quantity}</p>
                             </div>
                             <div class="row">
                                 <span class="col">Price:</span>
-                                <p id="priceProduct" class="col price">${products.Price}</p>
+                                <p id="priceProduct-${products.id}" class="col price" data-price=${products.price}>${products.price.toLocaleString()}$</p>
                             </div>
                             <div class="row">
                                 <span class="col">Total</span>
-                                <p id="totalProduct" data-id=${products.Id} class="col total">${products.Price}</p>
+                                <p id="totalProduct" class="col total"  data-id=${products.id} data-totalPrice=${products.Total()}>${products.Total().toLocaleString()}$</p>
                             </div>
                         </div>
                         <div class="cart-quantity">
-                            <button onclick="UpNumber(${products.Id})" class="btn-plus" type="button"><i class="bi bi-plus-circle"></i></button>
-                            <input onchange="ChangeNumber(${products.Id})" data-id=${products.Id} id="numberProduct" type="number" value="1" min=0>
-                            <button onclick="DownNumber(${products.Id})" class="btn-dash" type="button"><i class="bi bi-dash-circle"></i></button>
+                            <button onclick="UpNumber(${products.id})" class="btn-plus" type="button"><i class="bi bi-plus-circle"></i></button>
+                            <input onchange="ChangeNumber(this,${products.id})" data-id=${products.id} id="numberProduct" type="number" value="${products.quantity}" min=0>
+                            <button onclick="DownNumber(${products.id})" class="btn-dash" type="button"><i class="bi bi-dash-circle"></i></button>
                         </div>
                     </div>
                 </div>`;
@@ -177,88 +230,39 @@ function RenderCart(list) {
   Total();
 }
 
-async function AddCart(id) {
-  let product = await GetAPI(URL_PRODUCTS, id);
-
-  // Kiểm tra resquest thành công mới add vào danh sách
-  if (true) {
-    AddListProducts(product);
-    RenderCart(listProducts);
-    // Kiểm tra put thành công mới render danh sách cart
-    let respon = await PutAPI(URL_CART, "1", listProducts);
+function ChangeToProduct(array = []) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    var product = new Product(element.id, element.name,
+      element.price, element.image,
+      element.brand, element.quantity)
+    listProducts.push(product);
   }
 }
-
-async function GetProductsFromCart(idCart = "1") {
-  let cart = await GetAPI(URL_CART, idCart);
-  return cart.Products;
-}
-
 
 // Kiểm tra Product có trong listProduct không
-// Nếu CÓ => return
-// KHÔNG => push vào danh sách
-async function AddListProducts(object) {
-
+// Nếu CÓ => return false
+// KHÔNG => return true
+function CheckIntoListProduct(object) {
   for (const iterator of listProducts) {
-    if (iterator.Id == object.Id) {
-      return;
+    if (iterator.id == object.id) {
+      return false;
     }
   }
-  listProducts.push(object);
-
+  return true
 }
-
-
-// Remove Product from Cart
-async function RemoveProduct(id) {
-  for (let index = 0; index < listProducts.length; index++) {
-    if (id == listProducts[index].Id) {
-      listProducts.splice(index, 1);
-    }
-  }
-  PutAPI(URL_CART, "1", listProducts);
-  RenderCart(listProducts);
-}
-
-
-window.DownNumber = function (id) {
-  var number = document.querySelector(`input[data-id="${id}"]`);
-  const QUANTITY = document.querySelector(`#quantityProduct[data-id="${id}"]`);
-
-  if (number.value * 1 > 0) {
-    number.value = number.value * 1 - 1;
-    QUANTITY.innerText = number.value;
-    TotalProduct(id);
-  }
-}
-
-window.UpNumber = function (id) {
-  var number = document.querySelector(`input[data-id="${id}"]`);
-  const QUANTITY = document.querySelector(`#quantityProduct[data-id="${id}"]`);
-
-  number.value = number.value * 1 + 1;
-  QUANTITY.innerText = number.value;
-  TotalProduct(id);
-}
-
-window.ChangeNumber = function (id) {
-
-  TotalProduct(id);
-
-}
-
 
 function TotalProduct(id) {
   const QUANTITY = document.querySelector(`#quantityProduct[data-id="${id}"]`);
   const TOTAL_PRODUCT = document.querySelector(`#totalProduct[data-id="${id}"]`);
 
-  var price = document.getElementById('priceProduct').innerText * 1;
+  var price = document.querySelector(`#priceProduct-${id}`).getAttribute("data-price") * 1;
   var inputNumber = document.querySelector(`input[data-id="${id}"]`).value * 1;
 
   if (inputNumber >= 0) {
     QUANTITY.innerText = inputNumber;
-    TOTAL_PRODUCT.innerText = (price * inputNumber);
+    TOTAL_PRODUCT.innerText = ChangeCurrency(price * inputNumber);
+    TOTAL_PRODUCT.setAttribute(`data-totalPrice`, price * inputNumber);
     Total();
   }
 }
@@ -269,8 +273,24 @@ function Total() {
   var sum = 0;
 
   for (const iterator of TOTAL_PRODUCTS) {
-    sum += new Number(iterator.innerText);
+    sum += new Number(iterator.getAttribute('data-totalPrice'));
   }
+  TOTAL.innerText = ChangeCurrency(sum);
+}
 
-  TOTAL.innerText = sum.toLocaleString() + "$";
+
+function ChangeCurrency(price) {
+  var dollar = (price * 1).toLocaleString() + "$";
+  return dollar;
+}
+
+function PostLocalStorage(list) {
+  var listJSON = JSON.stringify(list);
+  localStorage.setItem("cart", listJSON);
+}
+
+function GetLocalStorage(text = "cart") {
+  var string = localStorage.getItem(text);
+  var array = JSON.parse(string);
+  return array;
 }

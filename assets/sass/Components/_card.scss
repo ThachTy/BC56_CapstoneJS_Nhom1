@@ -24,6 +24,8 @@ $color-white: rgb(240, 240, 240);
         background: transparent;
     }
 
+
+
     img {
         position: absolute;
         object-fit: cover;
@@ -35,23 +37,47 @@ $color-white: rgb(240, 240, 240);
         transition: opacity .2s ease-out;
     }
 
+
+    .card-title {
+        width: 100%;
+
+        @media screen and (max-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
     h5 {
         width: 100%;
-        font-size: $fs-6;
+        font-size: $fs-5;
         color: $c-primary-light;
         font-weight: $fw-bold;
         text-transform: uppercase;
-        display: inline-block;
+        margin-bottom: 0;
 
-        @media screen and (max-width: 576px) {
-            font-size: $fs-4;
+        @media screen and (max-width: 576px) {}
+
+        @media screen and (max-width: 768px) {
+            width: 60%;
+            font-size: $fs-5;
         }
 
     }
 
     h5~span {
         @extend h5;
+        display: block;
+
+        white-space: nowrap;
         color: greenyellow;
+
+        @media screen and (max-width: 576px) {}
+
+        @media screen and (max-width: 768px) {
+            width: 30%;
+            text-align: end;
+        }
     }
 
     p {
