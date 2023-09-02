@@ -27,10 +27,10 @@
 <body>
     <!-- Header -->
     <header id="header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid px-0">
-                    <a class="navbar-brand" href="#">
+        <div class="container-fluid">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg align-items-center">
+                    <a class="navbar-brand" href="./index.html">
                         <h2 class="mb-0 ml-2 brand">Sneaker Store</h2>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -53,14 +53,14 @@
                                 </a>
                             </li>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!-- Cart -->
     <div class="offcanvas offcanvas-end cart" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        id="offcanvasScrolling" hidden.bs.offcanvas aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
             <p class="offcanvas-title cart-title" id="offcanvasScrollingLabel">
                 <i class="bi bi-bag-check"></i>
@@ -103,97 +103,46 @@
         <div class="offcanvas-footer">
             <div class="container">
                 <!-- Cart Total -->
-                <div class="row">
+                <div class="row align-items-center">
                     <span class="col">TOTAL: </span>
-                    <p id="total" class="col tottalAll"></p>
+                    <p id="total" class="col tottalAll">0</p>
                 </div>
 
-                <button class="btn-checkout">CHECKOUT</button>
+                <button id="btnCheckOut" class="btn-checkout">CHECKOUT</button>
             </div>
 
 
         </div>
     </div>
 
-    <!-- Carousel -->
-    <!-- <section class="carousel">
-        <div class="container">
-            <div class="carousel__list">
-                <div class="carousel__content">
-                    <div class="carousel__item ">
-                        <div class="content-left">
-                            <h1 class="carousel__slogan">
-                                EPIC ENERGY. <br />
-                                LIGHTEST EVER.
-                            </h1>
-                            <p class="carousel__description">
-                                Experience epic energy in every stride with the Ultraboost
-                                Light. Our lightest Ultraboost ever, made with 30% lighter
-                                BOOST material. 'Cause heavy legs suck.
-                            </p>
-                            <button class="btn-primary">Buy Now</button>
-                        </div>
-                        <div class="content-right">
-                            <img src="../assets/img/jordan02.png" alt="" />
-                            <p id="p">JORDAN 1</p>
-                        </div>
-                    </div>
-                    <div class="carousel__item">
-                        <div class="content-left">
-                            <h1 class="carousel__slogan">
-                                STEP INTO. <br />
-                                WHAT FEELS GOOD.
-                            </h1>
-                            <p class="carousel__description">
-                                Experience epic energy in every stride with the Ultraboost
-                                Light. Our lightest Ultraboost ever, made with 30% lighter
-                                BOOST material. 'Cause heavy legs suck.
-                            </p>
-                            <button class="btn-primary">Buy Now</button>
-                        </div>
-                        <div class="content-right">
-                            <img src="../assets/img/SUPERSTAR_Light.png" alt="" />
-                            <p id="p">SUPPER STAR</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel__nav">
-                    <button class="btn-prev">
-                        <i class="fa fa-arrow-left"></i>
-                    </button>
-                    <button class="btn-next">
-                        <i class="fa fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Products  -->
     <section class="product">
-        <div class="container-md container-fluid py-4">
-            <h5 class="product__title mb-4">NEW PRODUCTS</h5>
-            <div class="row row-cols-lg-4 mb-4 product__search">
-                <div class="col">
-                    <select class="form-controls form-all" name="" id="categories">
-                        <option selected>All Brands</option>
-                        <option value="Plastic">Nike</option>
-                        <option value="Wooden">Adidas</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <input id="typeSearch" class="form-controls form-search" type="search" placeholder="Search..." />
-                    <!-- <button class="btn btn-dark my-2 my-sm-0" type="submit">
+        <div class="container-fluid py-4">
+            <div class="container">
+                <h5 class="product__title mb-4">NEW PRODUCTS</h5>
+                <div class="row row-cols-lg-4 mb-4 product__search">
+                    <div class="col">
+                        <select class="form-controls form-all" name="" id="categories">
+                            <option selected>All Brands</option>
+                            <option value="type1">Nike</option>
+                            <option value="type2">Adidas</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input id="typeSearch" class="form-controls form-search" type="search"
+                            placeholder="Search..." />
+                        <!-- <button class="btn btn-dark my-2 my-sm-0" type="submit">
+
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button> -->
+                    </div>
                 </div>
-            </div>
 
-            <div class="product__items py-3">
-                <div id="listProduct" class="row row-gap-3 row-gap-lg-4 row-cols-1  row-cols-md-3 row-cols-lg-4">
-                    <!-- <div class="col">
-                        `<div class="card col">
-                            <img src="" alt="">
+                <div class="product__content py-3">
+                    <div id="listProduct" class="row row-cols-1  row-cols-sm-2 row-cols-lg-4 product__items">
+                        <!-- <div class="col">
+                        `<div class="card col">+
+
                             <div class="card-content">
                                 <h2>
                                    Name
@@ -209,6 +158,7 @@
                             </div>
                         </div>`
                     </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -217,96 +167,91 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-sub">
+        <div class="container-fluid">
+            <div class="footer_content">
                 <div class="container">
-                    <div class="text-txt">
-                        <div class="row pt-4">
-                            <div class="col-6 col-sm-3 px-0 footer_brands">
-                                <h6>BRANDS</h6>
-                                <ul>
-                                    <li class="cat-item cat-item-2">
-                                        <a href="#">Nike</a>
-                                    </li>
-                                    <li class="cat-item cat-item-4">
-                                        <a href="#">Adidas</a>
-                                    </li>
-                                </ul>
-                            </div>
+                    <div class="row py-4">
+                        <div class="col col-6 col-md-2 px-0 ">
+                            <h6 class="footer_title">BRANDS</h6>
+                            <ul class="footer_item">
+                                <li>
+                                    <a href="#">Nike</a>
+                                </li>
+                                <li>
+                                    <a href="#">Adidas</a>
+                                </li>
+                            </ul>
+                        </div>
 
-                            <div class="col-6 col-sm-3 px-0 footer_useful">
-                                <h6>USEFUL</h6>
-                                <ul>
-                                    <li class="cat-item cat-item-2">
-                                        <a href="#">Pricing</a>
-                                    </li>
-                                    <li class="cat-item cat-item-3">
-                                        <a href="#">Settings</a>
-                                    </li>
-                                    <li class="cat-item cat-item-4">
-                                        <a href="#">Orders</a>
-                                    </li>
-                                    <li class="cat-item cat-item-5">
-                                        <a href="#">Help</a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="col col-6 col-md-3 px-0">
+                            <h6 class="footer_title">USEFUL</h6>
+                            <ul class="footer_item">
+                                <li>
+                                    <a href="#">Pricing</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Orders</a>
+                                </li>
+                                <li>
+                                    <a href="#">Help</a>
+                                </li>
+                            </ul>
+                        </div>
 
-                            <div class="col-6 col-sm-3 px-0 footer_contact">
-                                <h6>CONTACT</h6>
-                                <div class="contact_content">
-                                    <div class="href1">
-                                        <span class="fa fa-envelope-open"></span>
-                                        <a href="mailto:info@example.com">info@example.com</a>
-                                    </div>
+                        <div class="col col-6 col-md-3 px-0">
+                            <h6 class="footer_title">CONTACT</h6>
+                            <ul class="footer_item">
+                                <li>
+                                    <a href="mailto:info@example.com">
+                                        <span class="fa fa-envelope-open"></span>info@example.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:+44-000-888-999">
+                                        <span class="fa fa-phone"></span>+44-000-888-999
+                                    </a>
+                                </li>
 
-                                    <div class="href2">
-                                        <span class="fa fa-phone"></span>
-                                        <a href="tel:+44-000-888-999">+44-000-888-999</a>
-                                    </div>
+                                <li>
+                                    <a href="Da Nang, Thanh Khe, VN">
+                                        <span class="fa fa-map-marker"></span>
+                                        Tan Lap, Di An, Binh Duong
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-                                    <div>
-                                        <p class="contact-para">
-                                            <span class="fa fa-map-marker"></span>
-                                            <a href="Da Nang, Thanh Khe, VN">Tan Lap, Di An, Binh Duong</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-6 col-sm-3 px-0 sub-one-left ab-right-cont footer_about">
-                                <h6>Shose</h6>
-                                <p class="text-capitalize">
-                                    We pride ourselves on our efficiency and hard work, but most
-                                    of all our ability to source you the best quality and best
-                                    value products and devices in the market.
-                                </p>
-                            </div>
+                        <div class="col col-6 col-md-4 px-0">
+                            <h6 class="footer_title">SHOE</h6>
+                            <p class="text-capitalize shoe">
+                                We pride ourselves on our efficiency and hard work, but most
+                                of all our ability to source you the best quality and best
+                                value products and devices in the market.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- copyright -->
-            <div class="copyright-footer">
-                <div class="container">
-                    <div class="columns">
-                        <p class="CopyRights">
-                            © 2023 Studious. All Rights Reserved | WordPress Theme by
-                            <a href="">Shoe. </a>
-                        </p>
-                    </div>
+        </div>
+        </div>
+        <!-- copyright -->
+        <div class="copyright-footer">
+            <div class="container">
+                <div class="columns">
+                    <p class="CopyRights">
+                        © 2023 Studious. All Rights Reserved | WordPress Theme by
+                        <a href="">Shoe. </a>
+                    </p>
                 </div>
             </div>
+        </div>
         </div>
     </footer>
 
     <!-- Back to top  -->
-    <!-- <div class="backToTop">
-        <a href="#header" class="back-to-top cd-top text-replace js-cd-top">
-            <i class="fa-solid fa-chevron-up"></i>
-        </a>
-    </div> -->
-
     <a class="back-to-top js-back-to-top" href="#header" data-offset="100">
         <svg class="cd-icon" viewBox="0 0 20 20">
             <polyline points="2 13 10 5 18 13" fill="none" stroke="currentColor" stroke-linecap="round"
@@ -327,7 +272,7 @@
     <script src="./util/method.js"></script>
     <script src="./util/backToTop.js"></script>
     <!-- index.js-->
-    <script src="./Controllers/index.js"></script>
+    <script type="module" src="./Controllers/index.js"></script>
 </body>
 
 </html>

@@ -23,7 +23,6 @@ $color-white: rgb(240, 240, 240);
         transition: all 0.35s;
         background: transparent;
     }
-
     img {
         position: absolute;
         object-fit: cover;
@@ -34,24 +33,43 @@ $color-white: rgb(240, 240, 240);
         opacity: 0.9;
         transition: opacity .2s ease-out;
     }
+    .card-title {
+        width: 100%;
+
+        @media screen and (max-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
 
     h5 {
         width: 100%;
-        font-size: $fs-6;
+        font-size: $fs-5;
         color: $c-primary-light;
         font-weight: $fw-bold;
         text-transform: uppercase;
-        display: inline-block;
+        margin-bottom: 0;
 
-        @media screen and (max-width: 576px) {
-            font-size: $fs-4;
+        @media screen and (max-width: 576px) {}
+
+        @media screen and (max-width: 768px) {
+            width: 60%;
+            font-size: $fs-5;
+
         }
 
     }
 
     h5~span {
         @extend h5;
+        display: block;
+        white-space: nowrap;
         color: greenyellow;
+        @media screen and (max-width: 768px) {
+            width: 30%;
+            text-align: end;
+        }
     }
 
     p {
@@ -61,7 +79,6 @@ $color-white: rgb(240, 240, 240);
         color: $c-secondary;
         opacity: 0;
         transition: opacity .3s ease-out;
-
     }
 
     .btn-Add {
@@ -73,13 +90,10 @@ $color-white: rgb(240, 240, 240);
         text-decoration: none;
         opacity: 0.2;
         transition: all 0.35s;
-
         .bi-bag-plus-fill {
-
             color: aliceblue;
         }
     }
-
 
     &:hover {
         p {
@@ -95,7 +109,6 @@ $color-white: rgb(240, 240, 240);
         .btn-Add {
             opacity: 1;
         }
-
         .card-content {
             transform: translateY(0);
             background: rgba(26, 26, 26, 0.45);
@@ -106,5 +119,4 @@ $color-white: rgb(240, 240, 240);
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
     }
-
 }
