@@ -9,22 +9,10 @@
 }
 
 .form-all {
-    // transition: all 0.35s;
-    // font-weight: $fw-semibold;
-
-    // &:focus {
-    //     padding-left: 10px;
-    //     border: 1px solid $bg-primary-darken;
-    //     color: $bg-primary;
-    //     background-color: $c-primary;
-    //     outline: none;
-    // }
-
     @include form-Control;
 }
 
 .form-search {
-
     @include form-Control;
 
     &::-webkit-input-placeholder {

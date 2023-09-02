@@ -1,9 +1,5 @@
 /* Button */
 .navbar-toggler {
-    &:focus {
-        box-shadow: none;
-    }
-
     &:hover .fa-solid.fa-bars {
         color: $c-primary-light;
     }
@@ -11,4 +7,60 @@
     .fa-solid.fa-bars {
         color: $c-primary;
     }
+}
+
+
+.btn-close,
+.navbar-toggler {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+//     {
+//     width: 100%;
+//     padding: 5px 0;
+//     color: #fff;
+//     background: #ed3a48;
+//     border: none;
+
+// }
+
+.btn-checkout {
+    width: 100%;
+    background-image: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);
+    padding: 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: $br-5;
+    display: block;
+    letter-spacing: 0.2rem;
+    border: none;
+}
+
+.btn-checkout:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-remove {
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+
+    .bi-x {
+        color: dimgray;
+    }
+
+    &:hover .bi-x {
+        color: $bg-primary;
+    }
+
 }

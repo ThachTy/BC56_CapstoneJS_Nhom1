@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Bootstrap CSS -v5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -60,14 +62,58 @@
     <div class="offcanvas offcanvas-end cart" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
         id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+            <p class="offcanvas-title cart-title" id="offcanvasScrollingLabel">
+                <i class="bi bi-bag-check"></i>
+                <span>Shopping Cart</span>
+                <span id="numberItems"></span>
+            </p>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <p>Try scrolling the rest of the page to see this option in action.</p>
+            <div id="cartBody" class="container">
+                <!-- Cart Item -->
+                <!-- <div class="cart-items ">
+                    <div class="cart-img"><img src="https://loremflickr.com/640/480/sports" alt=""></div>
+                    <div class="cart-detail">
+                        <div class="details">
+                            <span id="nameProduct">Name Product</span>
+                            <div class="row">
+                                <span class="col">Quantity:</span>
+                                <p id="quantityProduct" class="col quantity">2</p>
+                            </div>
+                            <div class="row">
+                                <span class="col">Price:</span>
+                                <p id="priceProduct" class="col price">648.5$</p>
+                            </div>
+                            <div class="row">
+                                <span class="col">Total</span>
+                                <p id="totalProduct" class="col total">1,254$</p>
+                            </div>
+                        </div>
+                        <div class="cart-quantity">
+                            <button class="btn-plus" type="button"><i class="bi bi-plus-circle"></i></button>
+                            <input type="number" value="1">
+                            <button class="btn-dash" type="button"><i class="bi bi-dash-circle"></i></button>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+        <div class="offcanvas-footer">
+            <div class="container">
+                <!-- Cart Total -->
+                <div class="row">
+                    <span class="col">TOTAL: </span>
+                    <p id="total" class="col tottalAll"></p>
+                </div>
+
+                <button class="btn-checkout">CHECKOUT</button>
+            </div>
+
+
         </div>
     </div>
-
 
     <!-- Carousel -->
     <!-- <section class="carousel">
@@ -146,34 +192,26 @@
             <div class="product__items py-3">
                 <div id="listProduct" class="row row-gap-3 row-gap-lg-4 row-cols-1  row-cols-md-3 row-cols-lg-4">
                     <!-- <div class="col">
-                        <div class="card w-100 p-4">
-                            <div class="card-top">
-                                <img src="./assets/img/jordan02.png" class="card-img-top d-block w-100" alt="...">
-                            </div>
-                            <div class="card-body px-0">
-                                <h5 class="card-title">Name Product</h5>
-                                <p class="card-start">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
+                        `<div class="card col">
+                            <img src="" alt="">
+                            <div class="card-content">
+                                <h2>
+                                   Name
+                                    <span>$482.5</span>
+                                </h2>
+                        
+                                <p>
+                                    lorem
                                 </p>
-                                <p class="card-price"> 126.85$</p>
-
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    thebulk of the card'scontent.</p>
-
+                                <a href="#" class="button">
+                                    <i class="bi bi-plus-square"></i>
+                                </a>
                             </div>
-                            <div class="card-footer px-0">
-                                <button class="btn btn-primary ml-5">
-                                    <i class="fa-solid fa-cart-plus"></i>
-                                </button>
-                            </div>
-                        </div>
+                        </div>`
                     </div> -->
                 </div>
             </div>
+        </div>
     </section>
 
 
