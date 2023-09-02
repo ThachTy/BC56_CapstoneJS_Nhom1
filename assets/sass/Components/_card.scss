@@ -1,14 +1,65 @@
 /* Card */
-
 .card {
-    .card-top {
-        height: 200px;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    background-color: mintcream;
+    // box-shadow: 0 0 10px 1px gray;
 
-        .card-img-top {
-            object-fit: fill;
-            height: 100%;
+    .card-img-top {
+        aspect-ratio: 3/4;
+        // height: 400px;
+        border-radius: 0;
+        box-shadow: 0 0 10px 1px gray;
+
+        @media screen and (max-width: 992px) {
+            height: 300px;
+            // height: 200px;
+
         }
 
+        @media screen and (max-width: 576px) {
+            height: 250px;
+            // height: 200px;
 
+        }
+    }
+
+    .card-body {
+        .card-title {
+            line-height: 1rem;
+            height: 40px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .card-start {
+            .fa-star {
+                color: $c-primary;
+            }
+        }
+
+        .card-type {
+            font-size: 1rem;
+            font-weight: 600px;
+        }
+
+        .card-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: $bg-secondary;
+        }
+
+        .card-text {
+            font-size: 0.7rem;
+            color: gray;
+            text-align: justify;
+        }
+
+    }
+
+    .card-footer {
+        border: none;
+        background-color: transparent;
     }
 }

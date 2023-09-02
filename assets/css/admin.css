@@ -6,26 +6,63 @@
 /* Background Color */
 /* Text */
 /* Margin */
-/* Back To Top */
+/* -------------------------------- 
+
+Icons 
+
+-------------------------------- */
+.cd-icon {
+  --size: 1em;
+  font-size: var(--size);
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  color: black;
+  fill: currentColor;
+  line-height: 1;
+  flex-shrink: 0;
+  max-width: initial;
+}
+
+.cd-icon use {
+  /* SVG symbols - enable icon color corrections */
+  color: inherit;
+  fill: currentColor;
+}
+
+/* -------------------------------- 
+
+Component 
+
+-------------------------------- */
 .back-to-top {
-  height: 50px;
-  width: 50px;
-  line-height: 50px;
-  text-align: center;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1;
-  background-color: #ffc014;
-  border-radius: 50%;
+  --size: 50px;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
   position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 10;
+  border-radius: 50%;
+  background-color: #ffc014;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.25s;
+}
+.back-to-top:hover .cd-icon {
+  --size: 25px;
+}
+.back-to-top .cd-icon {
+  --size: 20px;
+  display: block;
+  margin: auto;
+  transition: 0.25s;
+  color: #131514;
 }
 
-.cd-top--is-visible {
+.back-to-top--is-visible {
   visibility: visible;
-  opacity: 1;
-}
-
-.cd-top--fade-out {
   opacity: 1;
 }
 
@@ -34,6 +71,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+img {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
 }
 
 /* Button */
@@ -313,38 +360,3 @@ footer .copyright-footer a {
 }
 footer .copyright-footer a:hover, footer .copyright-footer afocus {
   color: #fee715;
-}/*# sourceMappingURL=admin.css.map */
-.custom-select {
-  display: inline-block;
-  width: 100%;
-  height: calc(1.5em + .75rem + 2px);
-  padding: .375rem 1.75rem .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #495057;
-  vertical-align: middle;
-  border-radius: .25rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-td img {
-  width: 250px;
-  height: 200px;
-  object-fit: cover;
-
-}
-.input-group-text{
-  justify-content: center;
-  width: 50px;
-  height: 40px;
- 
-}
-.form-group .noti{
- display: none;
- margin-left: 50px;
- color: red
-
-}

@@ -1,4 +1,4 @@
-/* Mixin */ 
+/* Mixin */
 
 @mixin title {
     color: $c-primary;
@@ -70,4 +70,18 @@
 
 @mixin clipPath-4corner {
     clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+}
+
+
+@mixin form-Control {
+    transition: all 0.35s;
+    font-weight: $fw-semibold;
+    cursor: pointer;
+
+    &:focus {
+        padding-left: 10px;
+        color: $bg-primary;
+        background-color: $c-primary;
+        outline: none;
+    }
 }

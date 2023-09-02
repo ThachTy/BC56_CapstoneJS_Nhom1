@@ -57,7 +57,7 @@
     </header>
 
     <!-- Cart -->
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    <div class="offcanvas offcanvas-end cart" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
         id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
@@ -125,18 +125,18 @@
 
     <!-- Products  -->
     <section class="product">
-        <div class="container py-4">
+        <div class="container-md container-fluid py-4">
             <h5 class="product__title mb-4">NEW PRODUCTS</h5>
-            <div class="row row-cols-lg-4 mb-4">
+            <div class="row row-cols-lg-4 mb-4 product__search">
                 <div class="col">
-                    <select class="form-control" name="" id="categories">
+                    <select class="form-controls form-all" name="" id="categories">
                         <option selected>All Brands</option>
                         <option value="Plastic">Nike</option>
                         <option value="Wooden">Adidas</option>
                     </select>
                 </div>
                 <div class="col">
-                    <input id="typeSearch" class="form-control" type="search" placeholder="Search..." />
+                    <input id="typeSearch" class="form-controls form-search" type="search" placeholder="Search..." />
                     <!-- <button class="btn btn-dark my-2 my-sm-0" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button> -->
@@ -144,7 +144,7 @@
             </div>
 
             <div class="product__items py-3">
-                <div id="listProduct" class="row row-gap-3 row-gap-lg-4 row-cols-1  row-cols-md-2 row-cols-lg-3">
+                <div id="listProduct" class="row row-gap-3 row-gap-lg-4 row-cols-1  row-cols-md-3 row-cols-lg-4">
                     <!-- <div class="col">
                         <div class="card w-100 p-4">
                             <div class="card-top">
@@ -172,8 +172,6 @@
                             </div>
                         </div>
                     </div> -->
-
-
                 </div>
             </div>
     </section>
@@ -265,11 +263,18 @@
     </footer>
 
     <!-- Back to top  -->
-    <div class="backToTop">
+    <!-- <div class="backToTop">
         <a href="#header" class="back-to-top cd-top text-replace js-cd-top">
             <i class="fa-solid fa-chevron-up"></i>
         </a>
-    </div>
+    </div> -->
+
+    <a class="back-to-top js-back-to-top" href="#header" data-offset="100">
+        <svg class="cd-icon" viewBox="0 0 20 20">
+            <polyline points="2 13 10 5 18 13" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+        </svg>
+    </a>
 
     <!-- boostrap-V5.3  -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -282,6 +287,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Ulti -->
     <script src="./util/method.js"></script>
+    <script src="./util/backToTop.js"></script>
     <!-- index.js-->
     <script src="./Controllers/index.js"></script>
 </body>

@@ -38,7 +38,7 @@ function RenderProduct(listProducts) {
 
   for (const product of listProducts) {
     text += `<div class="col">
-                        <div class="card w-100 p-4">
+                        <div class="card w-100 p-3">
                             <div class="card-top">
                                 <img src=${product.Image} class="card-img-top d-block w-100" alt="...">
                             </div>
