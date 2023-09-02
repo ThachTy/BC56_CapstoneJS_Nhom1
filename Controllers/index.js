@@ -7,6 +7,7 @@ import Product from "../Models/Product.js";
 var arraySearch = [];
 var listProducts = [];
 
+
 /*============================ DOM ====================================*/
 const TABLE_PRODUCT = document.querySelector('#listProduct');
 const BODY_CART = document.querySelector('#cartBody');
@@ -82,7 +83,6 @@ window.AddCart = function (id) {
     }
   });
 }
-
 
 
 window.DownNumber = function (id) {
@@ -168,6 +168,7 @@ function RenderProduct(list) {
   TABLE_PRODUCT.innerHTML = text;
 }
 
+
 async function PutAPI(URL, id, data = []) {
   URL += id;
   var respon = await axios.put(URL, { Products: data }).then()
@@ -240,6 +241,7 @@ function ChangeToProduct(array = []) {
   }
 }
 
+
 // Kiểm tra Product có trong listProduct không
 // Nếu CÓ => return false
 // KHÔNG => return true
@@ -266,6 +268,7 @@ function TotalProduct(id) {
     Total();
   }
 }
+
 
 function Total() {
   const TOTAL = document.getElementById('total');

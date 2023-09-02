@@ -51,9 +51,11 @@ Component
   opacity: 0;
   transition: 0.25s;
 }
+
 .back-to-top:hover .cd-icon {
   --size: 25px;
 }
+
 .back-to-top .cd-icon {
   --size: 20px;
   display: block;
@@ -77,6 +79,7 @@ Component
 img {
   -o-object-fit: fill;
      object-fit: fill;
+
 }
 
 html,
@@ -106,10 +109,14 @@ li {
 }
 .navbar-toggler .fa-solid.fa-bars {
   transition: all 0.35s;
+
 }
+
+/* Button */
 .navbar-toggler:hover .fa-solid.fa-bars {
   color: #fee715;
 }
+
 .navbar-toggler .fa-solid.fa-bars {
   color: #ffc014;
 }
@@ -147,9 +154,11 @@ li {
   width: 20px;
   height: 20px;
 }
+
 .btn-remove .bi-x {
   color: dimgray;
 }
+
 .btn-remove:hover .bi-x {
   color: #131514;
 }
@@ -163,16 +172,20 @@ header {
   left: 0;
   z-index: 99;
 }
+
 header .navbar {
   height: 100%;
 }
+
 header .navbar .navbar-brand {
   height: 60px;
   margin-right: 0;
   vertical-align: baseline;
   display: flex;
   align-items: center;
+
 }
+
 header .navbar .navbar-brand .brand {
   display: inline-block;
   font-weight: 700;
@@ -184,16 +197,19 @@ header .navbar .navbar-brand .brand {
 header .navbar .navbar-brand .brand:hover {
   color: #e3ee6b;
 }
+
 header .navbar .navbar-nav .nav-item:hover .nav-link {
   transition: all 0.7s;
   color: #ffffff;
 }
+
 header .navbar .navbar-nav .nav-item .nav-link {
   padding: 10px;
   color: #ffc014;
   font-size: 18px;
   font-weight: 18px;
 }
+
 header .navbar .navbar-nav .nav-item .nav-link i {
   margin-right: 4px;
 }
@@ -212,16 +228,19 @@ footer {
   background-color: #111111;
   width: 100%;
 }
+
 footer .footer_content {
   font-size: 1rem;
 }
 footer .footer_content a,
 footer .footer_content p {
   font-size: 1rem;
+
   color: #ffffff;
   line-height: 1.5rem;
   transition: all 0.25s;
 }
+
 footer .footer_content a:hover:not(.shoe), footer .footer_content a:focus:not(.shoe) *,
 footer .footer_content p:hover:not(.shoe),
 footer .footer_content p:focus:not(.shoe) * {
@@ -237,10 +256,13 @@ footer .footer_content p:focus:not(.shoe) * {
 }
 footer .footer_content .footer_title {
   text-transform: uppercase;
+
   color: #ffc014;
   font-size: 18px;
   letter-spacing: 0.2rem;
 }
+
+
 footer .footer_content .footer_item {
   padding: 0;
 }
@@ -274,5 +296,6 @@ footer .footer_content .footer_item li span {
   color: #ffffff;
 }
 .copyright-footer a:hover, .copyright-footer a:focus {
+
   color: #fee715;
 

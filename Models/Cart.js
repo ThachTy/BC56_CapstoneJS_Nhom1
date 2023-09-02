@@ -1,5 +1,4 @@
-export default class Cart extends this.Products {
-
+export default class Cart {
     constructor(products = []) {
         this.Products = products
     }

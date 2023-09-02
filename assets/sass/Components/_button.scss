@@ -4,21 +4,17 @@
     font-weight: 500;
     border: none;
     background-color: transparent;
-
+  
     .fa-solid.fa-bars {
         transition: all 0.35s;
     }
-
     &:hover .fa-solid.fa-bars {
         color: $c-primary-light;
     }
-
     .fa-solid.fa-bars {
         color: $c-primary;
     }
 }
-
-
 .btn-close,
 .navbar-toggler {
     &:focus {
@@ -61,5 +57,4 @@
     &:hover .bi-x {
         color: $bg-primary;
     }
-
 }
