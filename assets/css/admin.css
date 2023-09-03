@@ -276,3 +276,38 @@ footer .footer_content .footer_item li span {
 .copyright-footer a:hover, .copyright-footer a:focus {
   color: #fee715;
 }/*# sourceMappingURL=admin.css.map */
+.custom-select {
+  display: inline-block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem 1.75rem .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  vertical-align: middle;
+  border-radius: .25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+td img {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+
+}
+
+.input-group-text {
+  justify-content: center;
+  width: 50px;
+  height: 40px;
+
+}
+
+.form-group .noti {
+  display: none;
+  margin-left: 50px;
+  color: red
+}
