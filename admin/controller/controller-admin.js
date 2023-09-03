@@ -51,6 +51,35 @@ export let showDataForm = (data) => {
     document.getElementById("brand").value = brand;
     
 };
+export let rendertList = (list) => {
+    let i = 0
+    renderProductList(list)
+    console.table(list)
+    window.search = () => {
+        var type = document.querySelector('#selLoai').value
+        var pro = []
+        if (type === "all") {
+            renderProductList(list)
+        }
+        if (type === "Nike") {
+            for (i = 0; i < list.length; i++){
+                if (list[i].type === "Nike"){
+                    pro.push({...list[i]});
+                }
+            }
+            console.table(pro)
+            renderProductList(pro);
+        }
+        if (type === "Adidas") {
+            for (i = 0; i < list.length; i++) {
+                if (list[i].type ==="Adidas" ){
+                    pro.push(list[i]);
+                }
+            }
+            renderProductList(pro)
+        }
+    }
+}
 export let onSuccess = (message) => {
     Swal.fire(message,"","success");
 }

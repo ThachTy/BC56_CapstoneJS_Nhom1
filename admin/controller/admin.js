@@ -1,6 +1,6 @@
 
 import productServ from "../util/service.js";
-import {layThongTin,renderProductList,showDataForm,onSuccess, valid_data, onFail,new_data } from "./controller-admin.js";
+import {layThongTin, showDataForm,onSuccess, valid_data, onFail,new_data, rendertList } from "./controller-admin.js";
 
 //render 
 let fetchProductList = () => {
@@ -8,7 +8,8 @@ let fetchProductList = () => {
     productServ.getList()
         .then((res) => {
             console.log(res);
-            renderProductList(res.data)
+            // renderProductList(res.data)
+            rendertList(res.data)
          })
          .catch((err) => {
               console.log(err);
