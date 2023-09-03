@@ -1,26 +1,41 @@
 const NIKE = 'loai1'
 
-export let renderProductList = (list) => {
-    let contentHTTML = "";
-    list.reverse().forEach(({id, name, price, discount, status, image, description, brand}) => {
-
-        let trString= `<tr>
-                            <td>${id}</td>
-                            <td>${name}</td>
-                            <td>${price}</td>
-                            <td><img style = "width:300px; height:150px" src="${image}"></td>
-                            <td>${description}</td>
-                            <td>
-                                <button class='btn-danger btn' 
-                                onclick="deleteProduct(${id})">Xóa</button>
-                                <button class='btn-primary btn'
-                                onclick="editProduct(${id})">Sửa</button>
-                            </td>
-                            
-                    </tr>`
-        contentHTTML+= trString;
-    });
-    document.getElementById("tableDanhSach").innerHTML = contentHTTML;
+export let rendertList = (list) => {
+    render(list)
+    window.search = () => {
+        var name = document.getElementById('searchName').value
+        console.log(name)
+        if (name === "") {
+            render(list)
+        }
+        else {
+            const results = list.filter((list) => list.name.toLowerCase().startsWith(name.toLowerCase()));
+            console.log(results.length)
+            render(results)
+        }
+    }
+    function render(list){
+        let contentHTTML = "";
+        list.reverse().forEach(({id, name, price, discount, status, image, description, brand}) => {
+                let trString= `<tr>
+                                    <td>${id}</td>
+                                    <td>${name}</td>
+                                    <td>${price}</td>
+                                    <td><img style = "width:300px; height:150px" src="${image}"></td>
+                                    <td>${description}</td>
+                                    <td>
+                                        <button class='btn-danger btn' 
+                                        onclick="deleteProduct(${id})">Xóa</button>
+                                        <button class='btn-primary btn'
+                                        onclick="editProduct(${id})">Sửa</button>
+                                    </td>
+                                    
+                            </tr>`
+                contentHTTML+= trString;
+            });
+            document.getElementById("tableDanhSach").innerHTML = contentHTTML;
+        }
+    
 };
 
 
@@ -51,35 +66,35 @@ export let showDataForm = (data) => {
     document.getElementById("brand").value = brand;
     
 };
-export let rendertList = (list) => {
-    let i = 0
-    renderProductList(list)
-    console.table(list)
-    window.search = () => {
-        var type = document.querySelector('#selLoai').value
-        var pro = []
-        if (type === "all") {
-            renderProductList(list)
-        }
-        if (type === "Nike") {
-            for (i = 0; i < list.length; i++){
-                if (list[i].type === "Nike"){
-                    pro.push({...list[i]});
-                }
-            }
-            console.table(pro)
-            renderProductList(pro);
-        }
-        if (type === "Adidas") {
-            for (i = 0; i < list.length; i++) {
-                if (list[i].type ==="Adidas" ){
-                    pro.push(list[i]);
-                }
-            }
-            renderProductList(pro)
-        }
-    }
-}
+// export let rendertList = (list) => {
+//     let i = 0
+//     renderProductList(list)
+//     console.table(list)
+//     window.search = () => {
+//         var type = document.querySelector('#selLoai').value
+//         var pro = []
+//         if (type === "all") {
+//             renderProductList(list)
+//         }
+//         if (type === "Nike") {
+//             for (i = 0; i < list.length; i++){
+//                 if (list[i].type === "Nike"){
+//                     pro.push({...list[i]});
+//                 }
+//             }
+//             console.table(pro)
+//             renderProductList(pro);
+//         }
+//         if (type === "Adidas") {
+//             for (i = 0; i < list.length; i++) {
+//                 if (list[i].type ==="Adidas" ){
+//                     pro.push(list[i]);
+//                 }
+//             }
+//             renderProductList(pro)
+//         }
+//     }
+// }
 export let onSuccess = (message) => {
     Swal.fire(message,"","success");
 }

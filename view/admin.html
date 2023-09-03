@@ -74,12 +74,8 @@
                         <div class="form-group row">
                             <label for="selLoai" class="col-sm-2 col-form-label">Show</label>
                             <div class="col-sm-10">
-                                <select class="custom-select" id="selLoai">
-                                    <option selected>Select</option>
-                                    <option value="all">All</option>
-                                    <option value="loai1">Nike</option>
-                                    <option value="loai2">Adidas</option>
-                                </select>
+                                <input type="text" name="category" id="searchName" placeholder="Tìm Kiếm"> </input>
+                                <button onclick="search()" class="input-group-text" id="btnSearch"><i class="bi bi-search"></i></button>
                             </div>
                         </div>
                     </div>
