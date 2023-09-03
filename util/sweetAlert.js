@@ -8,8 +8,18 @@ let success = function (message) {
         'success')
 }
 
+let error = function (message) {
+
+    sweetalert2.fire({
+        icon: 'error',
+        title: 'Failed',
+        text: message,
+    })
+}
+
 let sweetAlert = {
     success,
+    error,
 }
 
 export default sweetAlert;

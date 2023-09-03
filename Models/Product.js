@@ -8,7 +8,6 @@ export default class Product {
         this.quantity = quantity;
     }
 
-
     Total = function () {
         return this.price * this.quantity;
     }

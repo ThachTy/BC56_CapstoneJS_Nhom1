@@ -4,9 +4,7 @@ import Product from "../Models/Product.js";
 
 
 /*=========================== GLOBAL ================================*/
-var arraySearch = [];
 var listProducts = [];
-
 
 /*============================ DOM ====================================*/
 const TABLE_PRODUCT = document.querySelector('#listProduct');
@@ -19,12 +17,14 @@ document.body.onload = async function () {
   // Product
   await productServ.getList().then((res) => {
     RenderProduct(res.data);
-  });
+  }).catch(console.log);
 
   // Cart
-  const productFromCart = GetLocalStorage("cart");
-  ChangeToProduct(productFromCart);
-  RenderCart(listProducts);
+  if (GetLocalStorage("cart")) {
+    const productFromCart = GetLocalStorage("cart");
+    ChangeToProduct(productFromCart);
+    RenderCart(listProducts);
+  }
 }
 
 document.querySelector('#categories').onchange = async function (event) {
@@ -38,21 +38,21 @@ document.querySelector('#categories').onchange = async function (event) {
       var listSearch = SearchProducts(res.data, slect.value, "brand");
       RenderProduct(listSearch);
     }
-  });
+  }).catch(console.log);
 }
 
-document.querySelector('#typeSearch').onkeyup = async function (event) {
+document.querySelector('#typeSearch').onkeydown = async function (event) {
   var type = event.target;
 
   await productServ.getList().then(function (res) {
-    if (type.value == "") {
+    if (type.value.length == 0) {
       RenderProduct(res.data);
     }
     else {
       var listSearch = SearchProducts(res.data, type.value, "name")
       RenderProduct(listSearch);
     }
-  });
+  }).catch(console.log);
 }
 
 // Remove Product from Cart
@@ -71,17 +71,14 @@ window.AddCart = function (id) {
   // Lấy Object Product theo Id => res.data
   productServ.getDetail(id).then(async function (res) {
     // Kiểm tra resquest thành công mới add vào danh sách
-    if (true && CheckIntoListProduct(res.data)) {
-
+    if (CheckIntoListProduct(res.data)) {
       ChangeToProduct([res.data]);
-
       PostLocalStorage(listProducts);
-
       RenderCart(listProducts);
       // Kiểm tra put thành công mới render danh sách cart
       await PutAPI(URL_CART, "1", listProducts);
     }
-  });
+  }).catch(console.log);
 }
 
 
@@ -130,13 +127,20 @@ window.ChangeNumber = function (target, id) {
 }
 
 document.getElementById('btnCheckOut').onclick = function () {
-  listProducts = [];
-  RenderCart(listProducts);
-  document.querySelectorAll('.total').innerText = "0.00$";
-  PostLocalStorage(listProducts);
-  sweetAlert.success("You've successfully paid !");
-  const bsOffcanvas = new bootstrap.Offcanvas('#offcanvasScrolling');
-  bsOffcanvas.hide = true;
+  if (listProducts.length != 0) {
+    listProducts = [];
+    RenderCart(listProducts);
+    document.querySelectorAll('.total').innerText = "0.00$";
+    PostLocalStorage(listProducts);
+    sweetAlert.success("You've successfully paid !");
+
+    const bsOffcanvas = new bootstrap.Offcanvas('#offcanvasScrolling');
+    bsOffcanvas._isShown = true;
+    bsOffcanvas.toggle('show');
+  }
+  else {
+    sweetAlert.error("Cart is Emty !!!");
+  }
 }
 
 /*============================ PRODUCT ================================*/
@@ -294,6 +298,9 @@ function PostLocalStorage(list) {
 
 function GetLocalStorage(text = "cart") {
   var string = localStorage.getItem(text);
-  var array = JSON.parse(string);
-  return array;
+  if (localStorage.getItem(text)) {
+    return JSON.parse(string);
+  }
+  else
+    return false;
 }

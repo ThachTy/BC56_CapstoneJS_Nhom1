@@ -4,17 +4,20 @@
     font-weight: 500;
     border: none;
     background-color: transparent;
-  
+
     .fa-solid.fa-bars {
         transition: all 0.35s;
     }
+
     &:hover .fa-solid.fa-bars {
         color: $c-primary-light;
     }
+
     .fa-solid.fa-bars {
         color: $c-primary;
     }
 }
+
 .btn-close,
 .navbar-toggler {
     &:focus {
@@ -45,7 +48,7 @@
 
 .btn-remove {
     position: absolute;
-    top: -5px;
+    top: 0px;
     right: 0px;
     width: 20px;
     height: 20px;
